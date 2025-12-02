@@ -7,7 +7,27 @@ This project implements a hotel data importer and a simple frontend to view hote
 - Python 3
 - Django 5.1.4
 
-## Setup
+## Quick Start
+
+Run the automated setup script:
+
+```bash
+./setup.sh
+```
+
+This script will:
+- Create a virtual environment
+- Install dependencies
+- Apply migrations
+- Import hotel data (if .env is configured)
+
+Then start the server:
+```bash
+source .venv/bin/activate
+python manage.py runserver
+```
+
+## Manual Setup
 
 1.  **Clone the repository** (if not already done).
 2.  **Create and Activate Virtual Environment**:
@@ -38,6 +58,19 @@ python manage.py import_hotel_data
 ```
 
 This command fetches data from the configured URLs using the credentials provided in the environment.
+
+### Automated Daily Imports (Cronjob)
+
+To set up automated daily imports at 3 AM, add the following cronjob:
+
+```bash
+0 3 * * * cd /path/to/project && /path/to/venv/bin/python /path/to/project/manage.py import_hotel_data >> /var/log/import_hotel_data.log 2>&1
+```
+
+Example with actual paths:
+```bash
+0 3 * * * cd /home/user/maykin_csv_model_sync && /home/user/maykin_csv_model_sync/.venv/bin/python /home/user/maykin_csv_model_sync/manage.py import_hotel_data >> /var/log/import_hotel_data.log 2>&1
+```
 
 ### Run Server
 
