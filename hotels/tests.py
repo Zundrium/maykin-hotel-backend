@@ -36,11 +36,11 @@ class APITests(TestCase):
         self.assertEqual(response.json()[0]['name'], 'Hotel A')
 
     def test_hotel_filter_api(self):
-        response = self.client.get(reverse('hotel-list') + '?city=AMS')
+        response = self.client.get(reverse('hotel-list') + '?city__code=AMS')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 1)
         
-        response = self.client.get(reverse('hotel-list') + '?city=XYZ')
+        response = self.client.get(reverse('hotel-list') + '?city__code=XYZ')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 0)
 
