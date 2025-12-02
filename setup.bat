@@ -63,7 +63,17 @@ if errorlevel 1 (
 echo ✓ Hotel data imported
 echo.
 
-REM Step 6: Run server
+REM Step 6: Create test users
+echo Step 6: Creating test users...
+.venv\Scripts\python manage.py create_test_users
+if errorlevel 1 (
+    echo ✗ Failed to create test users
+    exit /b 1
+)
+echo ✓ Test users created
+echo.
+
+REM Step 7: Run server
 echo === Setup Complete ===
 echo.
 echo To start the development server, run:

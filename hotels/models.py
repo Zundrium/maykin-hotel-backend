@@ -1,3 +1,4 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class City(models.Model):
@@ -17,3 +18,10 @@ class Hotel(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+class CustomUser(AbstractUser):
+    city = models.ForeignKey('City', on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.username

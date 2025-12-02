@@ -48,7 +48,13 @@ echo "Step 5: Importing hotel data..."
 echo "✓ Hotel data imported"
 echo ""
 
-# Step 6: Run server
+# Step 6: Create test users
+echo "Step 6: Creating test users..."
+.venv/bin/python manage.py create_test_users
+echo "✓ Test users created"
+echo ""
+
+# Step 7: Run server
 echo "=== Setup Complete ==="
 echo ""
 echo "To start the development server, run:"
