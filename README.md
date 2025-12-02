@@ -9,10 +9,16 @@ This project implements a hotel data importer and a simple frontend to view hote
 
 ## Quick Start
 
-Run the automated setup script:
+Run the automated setup script on linux:
 
 ```bash
 ./setup.sh
+```
+
+or on windows:
+
+```bash
+./setup.bat
 ```
 
 This script will:
